@@ -33,12 +33,14 @@ body {
     color: var(--dark);
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden; /* Prevents horizontal scroll */
 }
 
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 24px;
+    padding: 16px;
+    width: 100%;
 }
 
 /* ============================================================
@@ -47,11 +49,12 @@ body {
 .header-card {
     background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4f46e5 100%);
     border-radius: var(--radius);
-    padding: 40px 48px;
-    margin-bottom: 32px;
+    padding: 28px 20px;
+    margin-bottom: 24px;
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow);
+    width: 100%;
 }
 
 .header-card::before {
@@ -67,8 +70,9 @@ body {
 
 .header-badge {
     display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
     position: relative;
     z-index: 1;
 }
@@ -76,9 +80,9 @@ body {
 .badge {
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(10px);
-    padding: 4px 16px;
+    padding: 3px 12px;
     border-radius: 50px;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 600;
     color: var(--white);
     letter-spacing: 0.5px;
@@ -92,75 +96,77 @@ body {
 }
 
 .header-card h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: var(--white);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     letter-spacing: -0.5px;
+    word-wrap: break-word;
 }
 
 .header-card h1 i {
     color: #a78bfa;
-    margin-right: 12px;
+    margin-right: 10px;
 }
 
 .subtitle {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 400;
     color: rgba(255,255,255,0.7);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     letter-spacing: 0.3px;
 }
 
 .instructor-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
-    padding: 12px 0;
+    gap: 12px;
+    padding: 10px 0;
     border-top: 1px solid rgba(255,255,255,0.08);
     border-bottom: 1px solid rgba(255,255,255,0.08);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .instructor-info span {
     color: rgba(255,255,255,0.8);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .instructor-info i {
     color: #a78bfa;
-    margin-right: 8px;
-    width: 18px;
+    margin-right: 6px;
+    width: 16px;
 }
 
 .student-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
-    padding: 8px 0 12px;
+    gap: 12px;
+    padding: 6px 0 10px;
 }
 
 .student-info span {
     color: rgba(255,255,255,0.9);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    word-break: break-word;
 }
 
 .student-info i {
     color: #fcd34d;
-    margin-right: 8px;
-    width: 18px;
+    margin-right: 6px;
+    width: 16px;
 }
 
 .services-tag {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
     background: rgba(255,255,255,0.08);
-    padding: 8px 20px;
+    padding: 6px 16px;
     border-radius: 50px;
     color: rgba(255,255,255,0.85);
-    font-size: 0.85rem;
-    flex-wrap: wrap;
+    font-size: 0.75rem;
 }
 
 .services-tag i {
@@ -174,7 +180,7 @@ body {
 
 .services-tag span:not(:last-child)::after {
     content: '•';
-    margin-left: 12px;
+    margin-left: 8px;
     color: rgba(255,255,255,0.3);
 }
 
@@ -184,10 +190,12 @@ body {
 .card {
     background: var(--white);
     border-radius: var(--radius);
-    padding: 32px;
-    margin-bottom: 28px;
+    padding: 20px 16px;
+    margin-bottom: 20px;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    width: 100%;
+    overflow: hidden;
 }
 
 .card:hover {
@@ -195,7 +203,7 @@ body {
 }
 
 /* ============================================================
-   MATH DISPLAY - GRID LAYOUT (FIXED)
+   MATH DISPLAY - GRID LAYOUT
    ============================================================ */
 .math-display-card {
     background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
@@ -204,26 +212,27 @@ body {
 
 .math-display-card h2 {
     color: var(--primary);
-    margin-bottom: 24px;
-    font-size: 1.4rem;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
 }
 
 .math-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 14px;
 }
 
 .math-item {
     background: var(--white);
-    padding: 20px;
+    padding: 16px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(79, 70, 229, 0.06);
     transition: var(--transition);
-    min-height: 120px;
+    min-height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
 }
 
 .math-item:hover {
@@ -232,22 +241,29 @@ body {
 }
 
 .math-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: var(--gray);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .math-equation {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     color: var(--dark);
-    min-height: 50px;
+    min-height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    overflow-x: auto;
+    padding: 4px 0;
+}
+
+.math-equation mjx-container {
+    font-size: 0.85rem !important;
+    max-width: 100%;
 }
 
 /* ============================================================
@@ -260,33 +276,34 @@ body {
 .tool-header {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .tool-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--white);
-    font-size: 1.3rem;
+    font-size: 1rem;
     flex-shrink: 0;
 }
 
 .tool-header h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--dark);
     margin: 0;
 }
 
 .tool-desc {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--gray);
     margin: 0;
+    word-wrap: break-word;
 }
 
 .tool-body {
@@ -294,76 +311,75 @@ body {
 }
 
 /* ============================================================
-   INPUT GROUP
+   INPUT GROUP - FIXED FOR MOBILE
    ============================================================ */
 .input-group {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 10px;
+    margin-bottom: 14px;
+    width: 100%;
 }
 
 .input-item {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    min-width: 80px;
-    max-width: 150px;
+    flex: 1 1 auto;
+    min-width: 70px;
+    max-width: 100%;
 }
 
 .input-item label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--gray);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     text-transform: uppercase;
     letter-spacing: 0.3px;
 }
 
 .input-item input[type="number"],
 .input-item input[type="text"] {
-    padding: 10px 14px;
+    padding: 8px 10px;
     border: 2px solid #e2e8f0;
-    border-radius: 10px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
     font-family: 'Inter', sans-serif;
     transition: var(--transition);
     background: var(--white);
     color: var(--dark);
     width: 100%;
+    min-width: 60px;
 }
 
 .input-item input[type="number"]:focus,
 .input-item input[type="text"]:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
-}
-
-.input-item input[type="number"] {
-    width: 100%;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 /* ============================================================
-   BUTTONS
+   BUTTONS - FIXED FOR MOBILE
    ============================================================ */
 .btn-primary {
     background: var(--primary);
     color: var(--white);
     border: none;
-    padding: 10px 24px;
-    border-radius: 10px;
+    padding: 8px 16px;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: var(--transition);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     font-family: 'Inter', sans-serif;
-    height: 44px;
+    height: 38px;
     white-space: nowrap;
+    flex: 0 1 auto;
 }
 
 .btn-primary:hover {
@@ -376,18 +392,19 @@ body {
     background: var(--light-gray);
     color: var(--dark-secondary);
     border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
+    padding: 8px 14px;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: var(--transition);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     font-family: 'Inter', sans-serif;
-    height: 44px;
+    height: 38px;
     white-space: nowrap;
+    flex: 0 1 auto;
 }
 
 .btn-secondary:hover {
@@ -399,23 +416,26 @@ body {
    RESULT BOX
    ============================================================ */
 .result-box {
-    padding: 16px 20px;
+    padding: 12px 16px;
     background: #f8fafc;
-    border-radius: 10px;
+    border-radius: 8px;
     border-left: 4px solid var(--primary);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--dark-secondary);
-    min-height: 52px;
+    min-height: 44px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     transition: var(--transition);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .result-box i {
     color: var(--primary);
-    font-size: 1.1rem;
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 
 .result-box.success {
@@ -451,9 +471,10 @@ body {
 .footer-card {
     background: var(--dark);
     border-radius: var(--radius);
-    padding: 32px 40px;
+    padding: 24px 20px;
     margin-top: 16px;
     color: rgba(255,255,255,0.7);
+    width: 100%;
 }
 
 .footer-content {
@@ -461,18 +482,18 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
 }
 
 .footer-left h3 {
     color: var(--white);
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     margin-bottom: 2px;
 }
 
 .footer-left p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: rgba(255,255,255,0.5);
 }
 
@@ -481,22 +502,22 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 2px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .footer-center i {
-    margin-right: 6px;
+    margin-right: 4px;
     color: rgba(255,255,255,0.4);
 }
 
 .footer-right {
     display: flex;
-    gap: 12px;
+    gap: 8px;
 }
 
 .footer-link {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     background: rgba(255,255,255,0.05);
     display: flex;
@@ -505,7 +526,7 @@ body {
     color: rgba(255,255,255,0.6);
     transition: var(--transition);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
 }
 
 .footer-link:hover {
@@ -516,57 +537,131 @@ body {
 
 .footer-bottom {
     text-align: center;
-    margin-top: 20px;
-    padding-top: 16px;
+    margin-top: 16px;
+    padding-top: 12px;
     border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     color: rgba(255,255,255,0.35);
     letter-spacing: 0.3px;
 }
 
 /* ============================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN - FIXED FOR ALL SCREENS
    ============================================================ */
-@media (max-width: 768px) {
+
+/* Tablets and small laptops */
+@media (max-width: 992px) {
     .container {
         padding: 16px;
     }
+    
+    .math-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+    }
 
     .header-card {
-        padding: 28px 20px;
+        padding: 20px 16px;
+        border-radius: 12px;
     }
 
     .header-card h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .subtitle {
+        font-size: 0.75rem;
     }
 
     .card {
-        padding: 20px;
+        padding: 16px 14px;
+        border-radius: 12px;
     }
 
     .math-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .math-item {
+        padding: 12px;
+        min-height: 80px;
+    }
+
+    .math-equation {
+        font-size: 0.75rem;
+        min-height: 30px;
+    }
+
+    .math-equation mjx-container {
+        font-size: 0.75rem !important;
+    }
+
+    .tool-header h2 {
+        font-size: 0.9rem;
+    }
+
+    .tool-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
     }
 
     .input-group {
-        flex-direction: column;
-        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 8px;
     }
 
     .input-item {
-        min-width: 100%;
-        max-width: 100%;
+        min-width: 60px;
+        flex: 1 1 auto;
+    }
+
+    .input-item label {
+        font-size: 0.65rem;
+    }
+
+    .input-item input[type="number"],
+    .input-item input[type="text"] {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+        min-width: 50px;
     }
 
     .btn-primary,
     .btn-secondary {
-        width: 100%;
+        padding: 6px 12px;
+        font-size: 0.7rem;
+        height: 34px;
+        flex: 1 1 auto;
         justify-content: center;
+    }
+
+    .result-box {
+        padding: 10px 14px;
+        font-size: 0.75rem;
+        min-height: 38px;
+    }
+
+    .footer-card {
+        padding: 16px 14px;
     }
 
     .footer-content {
         flex-direction: column;
         text-align: center;
+        gap: 10px;
+    }
+
+    .footer-left h3 {
+        font-size: 0.85rem;
     }
 
     .student-info {
@@ -574,34 +669,135 @@ body {
         gap: 4px;
     }
 
+    .student-info span {
+        font-size: 0.75rem;
+    }
+
     .instructor-info {
         flex-direction: column;
         gap: 4px;
     }
 
+    .instructor-info span {
+        font-size: 0.7rem;
+    }
+
     .services-tag {
-        font-size: 0.75rem;
-        padding: 6px 14px;
-        flex-wrap: wrap;
+        font-size: 0.65rem;
+        padding: 4px 12px;
+        gap: 4px;
     }
 
     .services-tag span:not(:last-child)::after {
-        margin-left: 6px;
+        margin-left: 4px;
     }
 }
 
+/* Small Mobile Phones */
 @media (max-width: 480px) {
-    .math-grid {
-        grid-template-columns: 1fr;
+    .container {
+        padding: 8px;
     }
 
-    .header-badge {
-        gap: 6px;
+    .header-card {
+        padding: 16px 12px;
+        border-radius: 10px;
+    }
+
+    .header-card h1 {
+        font-size: 1rem;
     }
 
     .badge {
+        font-size: 0.55rem;
+        padding: 2px 8px;
+    }
+
+    .card {
+        padding: 12px 10px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+    }
+
+    .math-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .math-item {
+        padding: 10px;
+        min-height: 60px;
+    }
+
+    .math-equation {
+        font-size: 0.7rem;
+    }
+
+    .math-equation mjx-container {
+        font-size: 0.7rem !important;
+    }
+
+    .math-label {
         font-size: 0.6rem;
-        padding: 2px 10px;
+    }
+
+    .math-display-card h2 {
+        font-size: 0.95rem;
+    }
+
+    .tool-header {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .tool-header h2 {
+        font-size: 0.8rem;
+    }
+
+    .tool-desc {
+        font-size: 0.65rem;
+    }
+
+    .tool-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+    }
+
+    .input-item {
+        min-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .input-item input[type="number"],
+    .input-item input[type="text"] {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        min-width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 6px 10px;
+        font-size: 0.65rem;
+        height: 30px;
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+
+    .result-box {
+        padding: 8px 12px;
+        font-size: 0.7rem;
+        min-height: 34px;
+    }
+
+    .footer-card {
+        padding: 12px 10px;
+        border-radius: 10px;
+    }
+
+    .footer-left h3 {
+        font-size: 0.75rem;
     }
 }
 
@@ -634,4 +830,19 @@ body {
 }
 .card:nth-child(5) {
     animation-delay: 0.4s;
+}
+
+/* ============================================================
+   FIX FOR MATHJAX ON MOBILE
+   ============================================================ */
+mjx-container {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 4px 0 !important;
+}
+
+mjx-container svg {
+    max-width: 100% !important;
+    height: auto !important;
 }
