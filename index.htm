@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTH 4208 - Advanced Math Suite | FUTB</title>
+    
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            },
+            options: {
+                enableMenu: false
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- External JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- ============================================ -->
+        <!-- HEADER                                       -->
+        <!-- ============================================ -->
+        <header class="header-card">
+            <div class="header-badge">
+                <span class="badge">MTH 4208</span>
+                <span class="badge">2 Units</span>
+            </div>
+            <div class="header-content">
+                <h1>
+                    <i class="fas fa-calculator"></i> 
+                    FUTB Applied Mathematics Web Suite
+                </h1>
+                <p class="subtitle">Entrepreneurship in Mathematics • Module 2: Web Design for Mathematicians</p>
+                <div class="instructor-info">
+                    <span><i class="fas fa-user-tie"></i> Prof. B. I. Babura</span>
+                    <span><i class="fas fa-university"></i> Dept. of Applied Mathematics, FUTB</span>
+                </div>
+                <div class="student-info">
+                    <span><i class="fas fa-user-graduate"></i> <strong>Student:</strong>ABUBAKAR SHUAIBU</span>
+                    <span><i class="fas fa-id-badge"></i> <strong>REG No:</strong>SAT/MTH/23/0014</span>
+                </div>
+                <div class="services-tag">
+                    <i class="fas fa-wrench"></i> 
+                    Services: <span>Quadratic Solver</span> • <span>Pythagorean Theorem</span> • <span>Factorial Calculator</span> • <span>Statistics</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- ============================================ -->
+            <!-- MATHEMATICAL DISPLAY ENGINE - FIXED LAYOUT   -->
+            <!-- ============================================ -->
+            <section class="card math-display-card">
+                <h2><i class="fas fa-sigma"></i> Mathematical Display Engine</h2>
+                <div class="math-grid">
+                    
+                    <!-- Equation 1: Optimization Problem -->
+                    <div class="math-item">
+                        <p class="math-label">📐 Optimization Problem</p>
+                        <div class="math-equation">
+                            \[
+                            \theta^* = \arg\min_{\theta} J(\theta), \quad \text{where } J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2
+                            \]
+                        </div>
+                    </div>
+
+                    <!-- Equation 2: Quadratic Formula - CORRECTED -->
+                    <div class="math-item">
+                        <p class="math-label">📊 Quadratic Formula</p>
+                        <div class="math-equation" id="quadratic-equation">
+                            \[
+                            x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+                            \]
+                        </div>
+                    </div>
+
+                    <!-- Equation 3: Pythagorean Theorem -->
+                    <div class="math-item">
+                        <p class="math-label">📐 Pythagorean Theorem</p>
+                        <div class="math-equation">
+                            \[
+                            c = \sqrt{a^2 + b^2}
+                            \]
+                        </div>
+                    </div>
+
+                    <!-- Equation 4: Factorial -->
+                    <div class="math-item">
+                        <p class="math-label">🎯 Factorial</p>
+                        <div class="math-equation">
+                            \[
+                            n! = n \times (n-1) \times (n-2) \times \cdots \times 1
+                            \]
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- TOOL 1: QUADRATIC EQUATION SOLVER            -->
+            <!-- ============================================ -->
+            <section class="card tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: #8b5cf6;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h2>Quadratic Equation Solver</h2>
+                        <p class="tool-desc">Solves \(ax^2 + bx + c = 0\) for real, repeated, and complex roots</p>
+                    </div>
+                </div>
+                <div class="tool-body">
+                    <div class="input-group">
+                        <div class="input-item">
+                            <label>a</label>
+                            <input type="number" id="q_a" value="1" step="any">
+                        </div>
+                        <div class="input-item">
+                            <label>b</label>
+                            <input type="number" id="q_b" value="-5" step="any">
+                        </div>
+                        <div class="input-item">
+                            <label>c</label>
+                            <input type="number" id="q_c" value="6" step="any">
+                        </div>
+                        <button class="btn-primary" onclick="solveQuadratic()">
+                            <i class="fas fa-play"></i> Solve
+                        </button>
+                        <button class="btn-secondary" onclick="clearResult('q_result')">
+                            <i class="fas fa-undo"></i> Clear
+                        </button>
+                    </div>
+                    <div class="result-box" id="q_result">
+                        <i class="fas fa-info-circle"></i> Enter coefficients and click Solve
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- TOOL 2: PYTHAGOREAN THEOREM CALCULATOR      -->
+            <!-- ============================================ -->
+            <section class="card tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: #06b6d4;">
+                        <i class="fas fa-square-root-variable"></i>
+                    </div>
+                    <div>
+                        <h2>Pythagorean Theorem Calculator</h2>
+                        <p class="tool-desc">Computes hypotenuse \(c = \sqrt{a^2 + b^2}\)</p>
+                    </div>
+                </div>
+                <div class="tool-body">
+                    <div class="input-group">
+                        <div class="input-item">
+                            <label>Side a</label>
+                            <input type="number" id="p_a" value="3" step="any" min="0.01">
+                        </div>
+                        <div class="input-item">
+                            <label>Side b</label>
+                            <input type="number" id="p_b" value="4" step="any" min="0.01">
+                        </div>
+                        <button class="btn-primary" onclick="calcPythagoras()">
+                            <i class="fas fa-calculator"></i> Calculate
+                        </button>
+                        <button class="btn-secondary" onclick="clearResult('p_result')">
+                            <i class="fas fa-undo"></i> Clear
+                        </button>
+                    </div>
+                    <div class="result-box" id="p_result">
+                        <i class="fas fa-info-circle"></i> Enter side lengths and click Calculate
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- TOOL 3: FACTORIAL CALCULATOR                -->
+            <!-- ============================================ -->
+            <section class="card tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: #f59e0b;">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div>
+                        <h2>Factorial Calculator</h2>
+                        <p class="tool-desc">Computes \(n! = n \times (n-1) \times \cdots \times 1\)</p>
+                    </div>
+                </div>
+                <div class="tool-body">
+                    <div class="input-group">
+                        <div class="input-item">
+                            <label>n</label>
+                            <input type="number" id="fact_n" value="5" min="0" max="170">
+                        </div>
+                        <button class="btn-primary" onclick="calcFactorial()">
+                            <i class="fas fa-factorial"></i> Calculate !
+                        </button>
+                        <button class="btn-secondary" onclick="clearResult('fact_result')">
+                            <i class="fas fa-undo"></i> Clear
+                        </button>
+                    </div>
+                    <div class="result-box" id="fact_result">
+                        <i class="fas fa-info-circle"></i> Enter a number and click Calculate
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- TOOL 4: DESCRIPTIVE STATISTICS              -->
+            <!-- ============================================ -->
+            <section class="card tool-card">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: #10b981;">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div>
+                        <h2>Descriptive Statistics</h2>
+                        <p class="tool-desc">Calculate mean, median, mode, and standard deviation</p>
+                    </div>
+                </div>
+                <div class="tool-body">
+                    <div class="input-group">
+                        <div class="input-item" style="flex: 2;">
+                            <label>Numbers (comma separated)</label>
+                            <input type="text" id="stats_data" value="2, 4, 6, 8, 10">
+                        </div>
+                        <button class="btn-primary" onclick="calcStatistics()">
+                            <i class="fas fa-chart-simple"></i> Analyze
+                        </button>
+                        <button class="btn-secondary" onclick="clearResult('stats_result')">
+                            <i class="fas fa-undo"></i> Clear
+                        </button>
+                    </div>
+                    <div class="result-box" id="stats_result">
+                        <i class="fas fa-info-circle"></i> Enter numbers separated by commas and click Analyze
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ============================================ -->
+        <!-- FOOTER                                       -->
+        <!-- ============================================ -->
+        <footer class="footer-card">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3><i class="fas fa-calculator"></i> MTH 4208 Math Suite</h3>
+                    <p>© 2026 Department of Applied Mathematics, FUTB</p>
+                </div>
+                <div class="footer-center">
+                    <span><i class="fas fa-code"></i> Built with HTML5, CSS3 & JavaScript</span>
+                    <span><i class="fa-brands fa-github"></i> Hosted on GitHub Pages</span>
+                </div>
+                <div class="footer-right">
+                    <a href="#" class="footer-link"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="footer-link"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="footer-link"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Built for academic excellence • MTH 4208: Entrepreneurship in Mathematics</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FIX: Force MathJax to render correctly      -->
+    <!-- ============================================ -->
+    <script>
+        (function() {
+            // Render all math
+            function renderMath() {
+                if (window.MathJax && MathJax.typesetPromise) {
+                    MathJax.typesetPromise().catch(function(err) {
+                        console.log('MathJax error:', err);
+                    });
+                }
+            }
+
+            // Fix quadratic formula specifically
+            function fixQuadratic() {
+                const eqDiv = document.getElementById('quadratic-equation');
+                if (eqDiv) {
+                    const correctLatex = '\\[ x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\]';
+                    eqDiv.innerHTML = '';
+                    setTimeout(function() {
+                        eqDiv.innerHTML = correctLatex;
+                        if (window.MathJax && MathJax.typesetPromise) {
+                            MathJax.typesetPromise();
+                        }
+                    }, 100);
+                }
+            }
+
+            // Run on load
+            window.addEventListener('load', function() {
+                setTimeout(renderMath, 200);
+                setTimeout(fixQuadratic, 300);
+                setTimeout(renderMath, 500);
+                setTimeout(fixQuadratic, 600);
+            });
+
+            // Also run immediately if already loaded
+            if (document.readyState === 'complete') {
+                setTimeout(renderMath, 100);
+                setTimeout(fixQuadratic, 200);
+            }
+
+            console.log('✅ Math rendering initialized');
+        })();
+    </script>
+</body>
+</html>
